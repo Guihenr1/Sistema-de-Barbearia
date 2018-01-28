@@ -1,0 +1,6 @@
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\AcessoDados\bin\Debug\AcessoDados.dll
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\AcessoDados\bin\Debug\AcessoDados.pdb
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\AcessoDados\obj\Debug\AcessoDados.csprojResolveAssemblyReference.cache
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\AcessoDados\obj\Debug\AcessoDados.csproj.CoreCompileInputs.cache
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\AcessoDados\obj\Debug\AcessoDados.dll
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\AcessoDados\obj\Debug\AcessoDados.pdb

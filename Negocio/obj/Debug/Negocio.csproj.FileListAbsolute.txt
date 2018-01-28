@@ -1,0 +1,6 @@
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\bin\Debug\Negocio.dll
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\bin\Debug\Negocio.pdb
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\obj\Debug\Negocio.dll
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\obj\Debug\Negocio.pdb
