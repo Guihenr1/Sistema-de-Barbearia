@@ -10,5 +10,6 @@ namespace ObjetoTransferencia
     {
         public int IdCliente { get; set; }
         public string Nome { get; set; }
+        public Contato Telefone { get; set; }
     }
 }
