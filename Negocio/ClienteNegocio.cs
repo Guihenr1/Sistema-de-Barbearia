@@ -78,10 +78,10 @@ namespace Negocio
                 foreach (DataRow linha in dataTable.Rows)
                 {
                     Cliente cliente = new Cliente();
-                    cliente.IdCliente = Convert.ToInt32(linha["@IdCliente"]);
-                    cliente.Nome = Convert.ToString(linha["@Nome"]);
+                    cliente.IdCliente = Convert.ToInt32(linha["IdCliente"]);
+                    cliente.Nome = Convert.ToString(linha["Nome"]);
                     cliente.Telefone = new Contato();
-                    cliente.Telefone.Telefone = Convert.ToString(linha["@Telefone"]);
+                    cliente.Telefone.Telefone = Convert.ToString(linha["Telefone"]);
 
                     clienteColecao.Add(cliente);
                 }
@@ -104,10 +104,11 @@ namespace Negocio
                 foreach (DataRow linha in dataTable.Rows)
                 {
                     Cliente cliente = new Cliente();
-                    cliente.IdCliente = Convert.ToInt32(linha["@IdCliente"]);
-                    cliente.Nome = Convert.ToString(linha["@Nome"]);
+                    cliente.IdCliente = Convert.ToInt32(linha["IdCliente"]);
+                    cliente.Nome = Convert.ToString(linha["Nome"]);
+
                     cliente.Telefone = new Contato();
-                    cliente.Telefone.Telefone = Convert.ToString(linha["@Telefone"]);
+                    cliente.Telefone.Telefone = Convert.ToString(linha["Telefone"]);
 
                     clienteColecao.Add(cliente);
                 }

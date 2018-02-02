@@ -4,3 +4,8 @@ C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\obj\Debug\Negocio.csproj
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\obj\Debug\Negocio.dll
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\obj\Debug\Negocio.pdb
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\bin\Debug\AcessoDados.dll
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\bin\Debug\ObjetoTransferencia.dll
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\bin\Debug\AcessoDados.pdb
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\bin\Debug\AcessoDados.dll.config
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Negocio\bin\Debug\ObjetoTransferencia.pdb

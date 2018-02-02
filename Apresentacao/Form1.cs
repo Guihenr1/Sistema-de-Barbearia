@@ -10,11 +10,25 @@ using System.Windows.Forms;
 
 namespace Apresentacao
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipal : Form
     {
-        public Form1()
+        public FormPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmClienteSelecionar frmClienteSelecionar = new FrmClienteSelecionar(acao1.Cliente);
+            frmClienteSelecionar.MdiParent = this;
+            frmClienteSelecionar.Show();
+        }
+
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmClienteSelecionar frmClienteSelecionar = new FrmClienteSelecionar(acao1.Agenda);
+            frmClienteSelecionar.MdiParent = this;
+            frmClienteSelecionar.Show();
         }
     }
 }
