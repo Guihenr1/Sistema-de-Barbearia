@@ -37,9 +37,6 @@
             this.btInserir = new System.Windows.Forms.Button();
             this.btAlterar = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
-            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgwPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,13 +69,15 @@
             // dgwPrincipal
             // 
             this.dgwPrincipal.AllowUserToAddRows = false;
+            this.dgwPrincipal.AllowUserToDeleteRows = false;
+            this.dgwPrincipal.AllowUserToResizeColumns = false;
+            this.dgwPrincipal.AllowUserToResizeRows = false;
             this.dgwPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwPrincipal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdCliente,
-            this.Nome,
-            this.Telefone});
             this.dgwPrincipal.Location = new System.Drawing.Point(12, 33);
+            this.dgwPrincipal.MultiSelect = false;
             this.dgwPrincipal.Name = "dgwPrincipal";
+            this.dgwPrincipal.ReadOnly = true;
+            this.dgwPrincipal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwPrincipal.Size = new System.Drawing.Size(747, 382);
             this.dgwPrincipal.TabIndex = 3;
             // 
@@ -87,7 +86,7 @@
             this.btCancelar.Location = new System.Drawing.Point(662, 421);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btCancelar.TabIndex = 4;
+            this.btCancelar.TabIndex = 7;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
@@ -97,42 +96,29 @@
             this.btInserir.Location = new System.Drawing.Point(419, 421);
             this.btInserir.Name = "btInserir";
             this.btInserir.Size = new System.Drawing.Size(75, 23);
-            this.btInserir.TabIndex = 5;
+            this.btInserir.TabIndex = 4;
             this.btInserir.Text = "Inserir";
             this.btInserir.UseVisualStyleBackColor = true;
+            this.btInserir.Click += new System.EventHandler(this.btInserir_Click);
             // 
             // btAlterar
             // 
             this.btAlterar.Location = new System.Drawing.Point(500, 421);
             this.btAlterar.Name = "btAlterar";
             this.btAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btAlterar.TabIndex = 6;
+            this.btAlterar.TabIndex = 5;
             this.btAlterar.Text = "Alterar";
             this.btAlterar.UseVisualStyleBackColor = true;
+            this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
             // 
             // btExcluir
             // 
             this.btExcluir.Location = new System.Drawing.Point(581, 421);
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btExcluir.TabIndex = 8;
+            this.btExcluir.TabIndex = 6;
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = true;
-            // 
-            // IdCliente
-            // 
-            this.IdCliente.HeaderText = "Id do Cliente";
-            this.IdCliente.Name = "IdCliente";
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            // 
-            // Telefone
-            // 
-            this.Telefone.HeaderText = "Telefone";
-            this.Telefone.Name = "Telefone";
             // 
             // FrmClienteSelecionar
             // 
@@ -170,8 +156,5 @@
         private System.Windows.Forms.Button btInserir;
         private System.Windows.Forms.Button btAlterar;
         private System.Windows.Forms.Button btExcluir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
     }
 }

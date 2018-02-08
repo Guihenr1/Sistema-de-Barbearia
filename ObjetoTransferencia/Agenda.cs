@@ -9,8 +9,10 @@ namespace ObjetoTransferencia
     public class Agenda
     {
         public int IdAgendamento { get; set; }
-        public int IdCliente { get; set; }
+        public Cliente IdCliente { get; set; }
         public DateTime Data { get; set; }
         public DateTime AgendadoEm { get; set; }
+        public Boolean Atendido { get; set; }
+        public AgendaServicos agendaServicos { get; set; }
     }
 }

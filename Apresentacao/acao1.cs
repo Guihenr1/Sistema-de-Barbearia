@@ -9,6 +9,8 @@ namespace Apresentacao
     public enum acao1
     {
         Cliente,
-        Agenda
+        Agenda, 
+        Inserir,
+        Alterar
     }
 }
