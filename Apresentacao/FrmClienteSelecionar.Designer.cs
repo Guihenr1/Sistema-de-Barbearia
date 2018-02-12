@@ -152,7 +152,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 456);
-            this.Controls.Add(this.btBuscarData);
             this.Controls.Add(this.dtpData);
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btAlterar);
@@ -162,6 +161,7 @@
             this.Controls.Add(this.btPesquisar);
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.lbPesquisa);
+            this.Controls.Add(this.btBuscarData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

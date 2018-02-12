@@ -57,22 +57,22 @@ namespace Apresentacao
             }
             else if(acaoNaTela.Equals(acao1.Alterar))
             {
+                Cliente clienteAlterar = new Cliente();
+                ClienteNegocio clienteNegocio = new ClienteNegocio();
+                clienteAlterar.Nome = txtNome.Text;
+                clienteAlterar.Telefone = new Contato();
+                clienteAlterar.Telefone.Telefone = txtTelefone.Text;
+                clienteAlterar.IdCliente = Convert.ToInt32(txtCodigoOculto.Text);
+                string Retorno = clienteNegocio.Alterar(clienteAlterar, clienteAlterar.Telefone);
                 try
                 {
-                    Cliente clienteAlterar = new Cliente();
-                    ClienteNegocio clienteNegocio = new ClienteNegocio();
-                    clienteAlterar.Nome = txtNome.Text;
-                    clienteAlterar.Telefone = new Contato();
-                    clienteAlterar.Telefone.Telefone = txtTelefone.Text;
-                    clienteAlterar.IdCliente = Convert.ToInt32(txtCodigoOculto.Text);
-                    string Retorno = clienteNegocio.Alterar(clienteAlterar, clienteAlterar.Telefone);
                     int IdCliente = Convert.ToInt32(Retorno);
                     MessageBox.Show("Cliente alterado com sucesso. Codigo: " + IdCliente, "Alterar diz:", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.Yes;
                 }
-                catch(Exception ex)
+                catch
                 {
-                    MessageBox.Show("Não foi possível alterar o cliente. Detalhes: " + ex.Message, "Erro ao Alterar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Não foi possível alterar o cliente. Detalhes: " + Retorno, "Erro ao Alterar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.DialogResult = DialogResult.No;
                 }
             }

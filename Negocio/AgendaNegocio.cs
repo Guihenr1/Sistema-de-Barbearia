@@ -126,5 +126,40 @@ namespace Negocio
                 throw new Exception(ex.Message);
             }
         }
+
+        public string ServicoAgendar(Agenda agenda)
+        {
+            try
+            {
+                acessoDados.LimparParametros();
+                acessoDados.AdicionaParametros("@IdCliente", agenda.IdCliente.IdCliente);
+                acessoDados.AdicionaParametros("@Data", agenda.Data);
+                acessoDados.AdicionaParametros("@IdServico", agenda.agendaServicos.IdServico.IdServico);
+                string IdAgendamento = acessoDados.ExecutarManipulacao(CommandType.StoredProcedure, "uspServicoAgendar").ToString();
+                return IdAgendamento;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public string AgendaAlterar(Agenda agenda)
+        {
+            try
+            {
+                acessoDados.LimparParametros();
+                acessoDados.AdicionaParametros("@IdAgendamento", agenda.IdAgendamento);
+                acessoDados.AdicionaParametros("@Data", agenda.Data);
+                acessoDados.AdicionaParametros("@Atendido", agenda.Atendido);
+                acessoDados.AdicionaParametros("@IdServico", agenda.agendaServicos.IdServico.IdServico);
+                string retorno = acessoDados.ExecutarManipulacao(CommandType.StoredProcedure, "uspAgendaAlterar").ToString();
+                return retorno;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -193,11 +193,23 @@ namespace Apresentacao
 
         private void btInserir_Click(object sender, EventArgs e)
         {
-            FrmInserirCliente frmInserir = new FrmInserirCliente(acao1.Inserir, null, null);
-            DialogResult resultado = frmInserir.ShowDialog();
-            if(resultado == DialogResult.OK)
+            if(acaoNaTela.Equals(acao1.Cliente))
             {
-                dgwPrincipal.Rows.Clear();
+                FrmInserirCliente frmInserir = new FrmInserirCliente(acao1.Inserir, null, null);
+                DialogResult resultado = frmInserir.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    dgwPrincipal.Rows.Clear();
+                }
+            }
+            else if(acaoNaTela.Equals(acao1.Agenda))
+            {
+                FrmServicoAgendar frmServicoAgendar = new FrmServicoAgendar();                
+                DialogResult resultado = frmServicoAgendar.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    dgwPrincipal.Rows.Clear();
+                }
             }
         }
 
@@ -205,21 +217,40 @@ namespace Apresentacao
         {
             if (dgwPrincipal.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Nenhum cliente selecionado", "Alterar diz:", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Nenhum registro selecionado", "Alterar diz:", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            Cliente clienteSelecionado = new Cliente();
-            clienteSelecionado.IdCliente = Convert.ToInt32(dgwPrincipal.SelectedRows[0].Cells["IdCliente"].Value);
-            clienteSelecionado.Nome = dgwPrincipal.SelectedRows[0].Cells["Nome"].Value.ToString();
-            Contato clienteContato = new Contato();
-            clienteContato.Telefone = dgwPrincipal.SelectedRows[0].Cells["Telefone"].Value.ToString();
-
-            FrmInserirCliente frmInserirCliente = new FrmInserirCliente(acao1.Alterar, clienteSelecionado, clienteContato);
-            DialogResult result = frmInserirCliente.ShowDialog();
-            if(result == DialogResult.Yes)
+            if(acaoNaTela.Equals(acao1.Cliente))
             {
-                dgwPrincipal.Rows.Clear();
+                Cliente clienteSelecionado = new Cliente();
+                clienteSelecionado.IdCliente = Convert.ToInt32(dgwPrincipal.SelectedRows[0].Cells["IdCliente"].Value);
+                clienteSelecionado.Nome = dgwPrincipal.SelectedRows[0].Cells["Nome"].Value.ToString();
+                Contato clienteContato = new Contato();
+                clienteContato.Telefone = dgwPrincipal.SelectedRows[0].Cells["Telefone"].Value.ToString();
+
+                FrmInserirCliente frmInserirCliente = new FrmInserirCliente(acao1.Alterar, clienteSelecionado, clienteContato);
+                DialogResult result = frmInserirCliente.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    dgwPrincipal.Rows.Clear();
+                }
+            }
+            else if(acaoNaTela.Equals(acao1.Agenda))
+            {
+                Agenda agenda = new Agenda();
+                agenda.IdAgendamento = Convert.ToInt32(dgwPrincipal.CurrentRow.Cells[0].Value);
+                agenda.Data = Convert.ToDateTime(dgwPrincipal.CurrentRow.Cells[5].Value);
+                agenda.Atendido = Convert.ToBoolean(dgwPrincipal.CurrentRow.Cells[7].Value);
+                agenda.agendaServicos = new AgendaServicos();
+                agenda.agendaServicos.IdServico = new Servicos();
+                agenda.agendaServicos.IdServico.Descricao = dgwPrincipal.CurrentRow.Cells[3].Value.ToString();
+                FrmAgendamentoAlterar frmAgendamentoAlterar = new FrmAgendamentoAlterar(agenda);
+                DialogResult dialogResult = frmAgendamentoAlterar.ShowDialog();
+                if(dialogResult == DialogResult.Yes)
+                {
+                    dgwPrincipal.Rows.Clear();
+                }
             }
         }
 

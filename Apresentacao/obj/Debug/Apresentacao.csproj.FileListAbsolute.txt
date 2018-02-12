@@ -17,3 +17,5 @@ C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\bin\Debug\ObjetoTra
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\bin\Debug\AcessoDados.pdb
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\bin\Debug\AcessoDados.dll.config
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\obj\Debug\Apresentacao.FrmInserirCliente.resources
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\obj\Debug\Apresentacao.FrmServicoAgendar.resources
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\obj\Debug\Apresentacao.FrmAgendamentoAlterar.resources

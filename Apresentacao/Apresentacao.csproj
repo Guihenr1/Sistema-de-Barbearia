@@ -51,6 +51,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAgendamentoAlterar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgendamentoAlterar.Designer.cs">
+      <DependentUpon>FrmAgendamentoAlterar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClienteSelecionar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,8 +71,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicoAgendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServicoAgendar.Designer.cs">
+      <DependentUpon>ServicoAgendar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgendamentoAlterar.resx">
+      <DependentUpon>FrmAgendamentoAlterar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClienteSelecionar.resx">
       <DependentUpon>FrmClienteSelecionar.cs</DependentUpon>
@@ -83,6 +98,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ServicoAgendar.resx">
+      <DependentUpon>ServicoAgendar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
