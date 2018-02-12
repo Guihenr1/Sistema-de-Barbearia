@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteSelecionar));
             this.lbPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
@@ -37,6 +38,8 @@
             this.btInserir = new System.Windows.Forms.Button();
             this.btAlterar = new System.Windows.Forms.Button();
             this.btExcluir = new System.Windows.Forms.Button();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.btBuscarData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,14 +54,14 @@
             // 
             // txtPesquisar
             // 
-            this.txtPesquisar.Location = new System.Drawing.Point(94, 6);
+            this.txtPesquisar.Location = new System.Drawing.Point(94, 5);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(529, 20);
             this.txtPesquisar.TabIndex = 1;
             // 
             // btPesquisar
             // 
-            this.btPesquisar.Location = new System.Drawing.Point(629, 4);
+            this.btPesquisar.Location = new System.Drawing.Point(630, 4);
             this.btPesquisar.Name = "btPesquisar";
             this.btPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btPesquisar.TabIndex = 2;
@@ -72,6 +75,8 @@
             this.dgwPrincipal.AllowUserToDeleteRows = false;
             this.dgwPrincipal.AllowUserToResizeColumns = false;
             this.dgwPrincipal.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgwPrincipal.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgwPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwPrincipal.Location = new System.Drawing.Point(12, 33);
             this.dgwPrincipal.MultiSelect = false;
@@ -119,12 +124,36 @@
             this.btExcluir.TabIndex = 6;
             this.btExcluir.Text = "Excluir";
             this.btExcluir.UseVisualStyleBackColor = true;
+            this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
+            // 
+            // dtpData
+            // 
+            this.dtpData.CustomFormat = "dd/MM/yyyy";
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.Location = new System.Drawing.Point(528, 5);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(96, 20);
+            this.dtpData.TabIndex = 8;
+            this.dtpData.Visible = false;
+            // 
+            // btBuscarData
+            // 
+            this.btBuscarData.Location = new System.Drawing.Point(630, 4);
+            this.btBuscarData.Name = "btBuscarData";
+            this.btBuscarData.Size = new System.Drawing.Size(75, 23);
+            this.btBuscarData.TabIndex = 9;
+            this.btBuscarData.Text = "Buscar";
+            this.btBuscarData.UseVisualStyleBackColor = true;
+            this.btBuscarData.Visible = false;
+            this.btBuscarData.Click += new System.EventHandler(this.btBuscarData_Click);
             // 
             // FrmClienteSelecionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 456);
+            this.Controls.Add(this.btBuscarData);
+            this.Controls.Add(this.dtpData);
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btAlterar);
             this.Controls.Add(this.btInserir);
@@ -156,5 +185,7 @@
         private System.Windows.Forms.Button btInserir;
         private System.Windows.Forms.Button btAlterar;
         private System.Windows.Forms.Button btExcluir;
+        private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.Button btBuscarData;
     }
 }

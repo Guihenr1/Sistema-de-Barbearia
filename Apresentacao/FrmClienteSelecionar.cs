@@ -37,43 +37,63 @@ namespace Apresentacao
                 Telefone.Name = "Telefone";
                 dgwPrincipal.Columns.Add(Telefone);
             }
-            else if(acao.Equals(acao1.Agenda))
+            if(acao.Equals(acao1.Agenda))
             {
                 acaoNaTela = acao1.Agenda;
                 Text = "Controle de Agenda";
                 lbPesquisa.Text = "Data Agenda";
 
-                DataGridViewColumn Data = new DataGridViewColumn();
-                Data.Name = "Data";
-                dgwPrincipal.Columns.Add(Data);
-
-                DataGridViewColumn IdAgendamento = new DataGridViewColumn();
+                DataGridViewColumn IdAgendamento = new DataGridViewTextBoxColumn();
+                IdAgendamento.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                IdAgendamento.DataPropertyName = "Agenda.IdAgendamento";
                 IdAgendamento.Name = "IdAgendamento";
                 dgwPrincipal.Columns.Add(IdAgendamento);
 
-                DataGridViewColumn IdCliente = new DataGridViewColumn();
+                DataGridViewColumn IdCliente = new DataGridViewTextBoxColumn();
+                IdCliente.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                IdCliente.DataPropertyName = "Agenda.IdCliente.IdCliente";
+                IdCliente.Width = 60;
                 IdCliente.Name = "IdCliente";
                 dgwPrincipal.Columns.Add(IdCliente);
 
-                DataGridViewColumn Nome = new DataGridViewColumn();
+                DataGridViewColumn Nome = new DataGridViewTextBoxColumn();
+                Nome.DataPropertyName = "agenda.IdCliente.Nome";
                 Nome.Name = "Nome";
                 dgwPrincipal.Columns.Add(Nome);
 
-                DataGridViewColumn Descricao = new DataGridViewColumn();
+                DataGridViewColumn Descricao = new DataGridViewTextBoxColumn();
+                Descricao.DataPropertyName = "Agenda.agendaServicos.IdServico.Descricao";
                 Descricao.Name = "Descricao";
                 dgwPrincipal.Columns.Add(Descricao);
 
-                DataGridViewColumn Valor = new DataGridViewColumn();
+                DataGridViewColumn Valor = new DataGridViewTextBoxColumn();
+                Valor.DataPropertyName = "Agenda.agendaServicos.IdServico.Valor";
+                Valor.Width = 60;
                 Valor.Name = "Valor";
                 dgwPrincipal.Columns.Add(Valor);
 
-                DataGridViewColumn AgendadoEm = new DataGridViewColumn();
+                DataGridViewColumn Data = new DataGridViewTextBoxColumn();
+                Data.DataPropertyName = "Agenda.Data";
+                Data.Name = "Data";
+                Data.DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgwPrincipal.Columns.Add(Data);
+
+                DataGridViewColumn AgendadoEm = new DataGridViewTextBoxColumn();
+                AgendadoEm.DataPropertyName = "Agenda.AgendadoEm";
+                AgendadoEm.DefaultCellStyle.Format = "dd/MM/yyyy";
                 AgendadoEm.Name = "AgendadoEm";
                 dgwPrincipal.Columns.Add(AgendadoEm);
 
                 DataGridViewCheckBoxColumn Atendido = new DataGridViewCheckBoxColumn();
+                Atendido.DataPropertyName = "Agenda.Atendido";
                 Atendido.Name = "Atendido";
+                Atendido.Width = 60;
                 dgwPrincipal.Columns.Add(Atendido);
+
+                txtPesquisar.Size = new Size(312, 20);
+                btPesquisar.Location = new Point(414, 4);
+                dtpData.Visible = true;
+                btBuscarData.Visible = true;
             }
             dgwPrincipal.AutoGenerateColumns = false;
         }
@@ -113,22 +133,44 @@ namespace Apresentacao
 
         private void PesquisarAgenda()
         {
-            dgwPrincipal.Rows.Clear();
-            int Codigo = Convert.ToInt32(txtPesquisar.Text);
-            AgendaNegocio agendaNegocio = new AgendaNegocio();
-            AgendaColecao agendaColecao = new AgendaColecao();
-            agendaColecao = agendaNegocio.ConsultarPorCodigo(Codigo);
-            foreach (Agenda item in agendaColecao)
+            try
             {
-                dgwPrincipal.Rows.Add();
-                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Data"].Value = item.Data;
-                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["IdAgendamento"].Value = item.IdAgendamento;
-                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["IdCliente"].Value = item.IdCliente.IdCliente;
-                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Nome"].Value = item.IdCliente.Nome;
-                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Descricao"].Value = item.agendaServicos.IdServico.Descricao;
-                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Valor"].Value = item.agendaServicos.IdServico.Valor;
-                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["AgendadoEm"].Value = item.AgendadoEm;
-                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Atendido"].Value = item.Atendido;
+                dgwPrincipal.Rows.Clear();
+                int Codigo = Convert.ToInt32(txtPesquisar.Text);
+                AgendaNegocio agendaNegocio = new AgendaNegocio();
+                AgendaColecao agendaColecao = new AgendaColecao();
+                agendaColecao = agendaNegocio.ConsultarPorCodigo(Codigo);
+                foreach (Agenda item in agendaColecao)
+                {
+                    dgwPrincipal.Rows.Add();
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Data"].Value = item.Data;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["IdAgendamento"].Value = item.IdAgendamento;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["IdCliente"].Value = item.IdCliente.IdCliente;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Nome"].Value = item.IdCliente.Nome;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Descricao"].Value = item.agendaServicos.IdServico.Descricao;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Valor"].Value = item.agendaServicos.IdServico.Valor;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["AgendadoEm"].Value = item.AgendadoEm;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Atendido"].Value = item.Atendido;
+                }
+            }
+            catch
+            {
+                dgwPrincipal.Rows.Clear();
+                AgendaNegocio agendaNegocio = new AgendaNegocio();
+                AgendaColecao agendaColecao = new AgendaColecao();
+                agendaColecao = agendaNegocio.ConsultarPorNome(txtPesquisar.Text);
+                foreach (Agenda item in agendaColecao)
+                {
+                    dgwPrincipal.Rows.Add();
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Data"].Value = item.Data;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["IdAgendamento"].Value = item.IdAgendamento;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["IdCliente"].Value = item.IdCliente.IdCliente;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Nome"].Value = item.IdCliente.Nome;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Descricao"].Value = item.agendaServicos.IdServico.Descricao;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Valor"].Value = item.agendaServicos.IdServico.Valor;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["AgendadoEm"].Value = item.AgendadoEm;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Atendido"].Value = item.Atendido;
+                }
             }
         }
 
@@ -178,6 +220,57 @@ namespace Apresentacao
             if(result == DialogResult.Yes)
             {
                 dgwPrincipal.Rows.Clear();
+            }
+        }
+
+        private void btBuscarData_Click(object sender, EventArgs e)
+        {
+            dgwPrincipal.Rows.Clear();
+            AgendaNegocio agendaNegocio = new AgendaNegocio();
+            AgendaColecao agendaColecao = new AgendaColecao();
+            agendaColecao = agendaNegocio.ConsultarPorData(dtpData.Value);
+            foreach (Agenda item in agendaColecao)
+            {
+                dgwPrincipal.Rows.Add();
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Data"].Value = item.Data;
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["IdAgendamento"].Value = item.IdAgendamento;
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["IdCliente"].Value = item.IdCliente.IdCliente;
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Nome"].Value = item.IdCliente.Nome;
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Descricao"].Value = item.agendaServicos.IdServico.Descricao;
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Valor"].Value = item.agendaServicos.IdServico.Valor;
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["AgendadoEm"].Value = item.AgendadoEm;
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Atendido"].Value = item.Atendido;
+            }
+        }
+
+        private void btExcluir_Click(object sender, EventArgs e)
+        {
+            if (dgwPrincipal.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Nenhum agendamento selecionado", "Excluir diz:");
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show("Tem certeza?", "Excluir diz:", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            int Codigo = Convert.ToInt32(dgwPrincipal.CurrentRow.Cells[0].Value);
+            AgendaNegocio agendaNegocio = new AgendaNegocio();
+            string retorno = agendaNegocio.ExcluirAgendamento(Codigo);
+
+            try
+            {
+                int IdAgendamento = Convert.ToInt32(retorno);
+                MessageBox.Show("Agendamento excluido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PesquisarAgenda();
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possivel excluir. Detalhes: " + retorno, "Erro ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
