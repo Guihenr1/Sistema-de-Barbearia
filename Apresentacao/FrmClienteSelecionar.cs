@@ -41,7 +41,7 @@ namespace Apresentacao
             {
                 acaoNaTela = acao1.Agenda;
                 Text = "Controle de Agenda";
-                lbPesquisa.Text = "Data Agenda";
+                lbPesquisa.Text = "Nome|Codigo";
 
                 DataGridViewColumn IdAgendamento = new DataGridViewTextBoxColumn();
                 IdAgendamento.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -89,6 +89,12 @@ namespace Apresentacao
                 Atendido.Name = "Atendido";
                 Atendido.Width = 60;
                 dgwPrincipal.Columns.Add(Atendido);
+
+                DataGridViewCheckBoxColumn Pago = new DataGridViewCheckBoxColumn();
+                Pago.DataPropertyName = "Agenda.Caixa.Pago";
+                Pago.Name = "Pago";
+                Pago.Width = 48;
+                dgwPrincipal.Columns.Add(Pago);
 
                 txtPesquisar.Size = new Size(312, 20);
                 btPesquisar.Location = new Point(414, 4);
@@ -151,6 +157,7 @@ namespace Apresentacao
                     dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Valor"].Value = item.agendaServicos.IdServico.Valor;
                     dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["AgendadoEm"].Value = item.AgendadoEm;
                     dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Atendido"].Value = item.Atendido;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Pago"].Value = item.Caixa.Pago;
                 }
             }
             catch
@@ -170,6 +177,7 @@ namespace Apresentacao
                     dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Valor"].Value = item.agendaServicos.IdServico.Valor;
                     dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["AgendadoEm"].Value = item.AgendadoEm;
                     dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Atendido"].Value = item.Atendido;
+                    dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Pago"].Value = item.Caixa.Pago;
                 }
             }
         }
@@ -240,11 +248,15 @@ namespace Apresentacao
             {
                 Agenda agenda = new Agenda();
                 agenda.IdAgendamento = Convert.ToInt32(dgwPrincipal.CurrentRow.Cells[0].Value);
+                agenda.IdCliente = new Cliente();
+                agenda.IdCliente.IdCliente = Convert.ToInt32(dgwPrincipal.CurrentRow.Cells[1].Value);
                 agenda.Data = Convert.ToDateTime(dgwPrincipal.CurrentRow.Cells[5].Value);
                 agenda.Atendido = Convert.ToBoolean(dgwPrincipal.CurrentRow.Cells[7].Value);
                 agenda.agendaServicos = new AgendaServicos();
                 agenda.agendaServicos.IdServico = new Servicos();
                 agenda.agendaServicos.IdServico.Descricao = dgwPrincipal.CurrentRow.Cells[3].Value.ToString();
+                agenda.Caixa = new Caixa();
+                agenda.Caixa.Pago = Convert.ToBoolean(dgwPrincipal.CurrentRow.Cells[8].Value);
                 FrmAgendamentoAlterar frmAgendamentoAlterar = new FrmAgendamentoAlterar(agenda);
                 DialogResult dialogResult = frmAgendamentoAlterar.ShowDialog();
                 if(dialogResult == DialogResult.Yes)
@@ -271,6 +283,7 @@ namespace Apresentacao
                 dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Valor"].Value = item.agendaServicos.IdServico.Valor;
                 dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["AgendadoEm"].Value = item.AgendadoEm;
                 dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Atendido"].Value = item.Atendido;
+                dgwPrincipal.Rows[dgwPrincipal.Rows.Count - 1].Cells["Pago"].Value = item.Caixa.Pago;
             }
         }
 
@@ -302,6 +315,21 @@ namespace Apresentacao
             catch
             {
                 MessageBox.Show("Não foi possivel excluir. Detalhes: " + retorno, "Erro ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgwPrincipal_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgwPrincipal.Columns[e.ColumnIndex].Name == "Pago")
+            {
+                if (e.Value.Equals(false))
+                {
+                    e.CellStyle.BackColor = Color.Red;
+                }
+                else if (e.Value.Equals(true))
+                {
+                    e.CellStyle.BackColor = Color.Green;
+                }
             }
         }
     }

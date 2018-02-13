@@ -19,3 +19,4 @@ C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\bin\Debug\AcessoDad
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\obj\Debug\Apresentacao.FrmInserirCliente.resources
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\obj\Debug\Apresentacao.FrmServicoAgendar.resources
 C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\obj\Debug\Apresentacao.FrmAgendamentoAlterar.resources
+C:\Users\guilh\Desktop\VB\C# e WEB\SysBarbearia\Apresentacao\obj\Debug\Apresentacao.FrmCaixa.resources

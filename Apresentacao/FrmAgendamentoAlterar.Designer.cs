@@ -31,14 +31,16 @@
             this.lbIdAgendamento = new System.Windows.Forms.Label();
             this.lbIdAgenda = new System.Windows.Forms.Label();
             this.gbDados = new System.Windows.Forms.GroupBox();
-            this.lbData = new System.Windows.Forms.Label();
-            this.dtpData = new System.Windows.Forms.DateTimePicker();
-            this.lbAtendido = new System.Windows.Forms.Label();
-            this.cbAtendido = new System.Windows.Forms.ComboBox();
-            this.lbServico = new System.Windows.Forms.Label();
             this.cbServico = new System.Windows.Forms.ComboBox();
+            this.lbServico = new System.Windows.Forms.Label();
+            this.cbAtendido = new System.Windows.Forms.ComboBox();
+            this.lbAtendido = new System.Windows.Forms.Label();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.lbData = new System.Windows.Forms.Label();
             this.btSalvar = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
+            this.btCaixa = new System.Windows.Forms.Button();
+            this.lbCodigo = new System.Windows.Forms.Label();
             this.gbDados.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,31 +77,25 @@
             this.gbDados.TabStop = false;
             this.gbDados.Text = "Dados";
             // 
-            // lbData
+            // cbServico
             // 
-            this.lbData.AutoSize = true;
-            this.lbData.Location = new System.Drawing.Point(123, 18);
-            this.lbData.Name = "lbData";
-            this.lbData.Size = new System.Drawing.Size(30, 13);
-            this.lbData.TabIndex = 2;
-            this.lbData.Text = "Data";
+            this.cbServico.FormattingEnabled = true;
+            this.cbServico.Items.AddRange(new object[] {
+            "Cabelo",
+            "Barba"});
+            this.cbServico.Location = new System.Drawing.Point(235, 33);
+            this.cbServico.Name = "cbServico";
+            this.cbServico.Size = new System.Drawing.Size(81, 21);
+            this.cbServico.TabIndex = 5;
             // 
-            // dtpData
+            // lbServico
             // 
-            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(126, 34);
-            this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(86, 20);
-            this.dtpData.TabIndex = 3;
-            // 
-            // lbAtendido
-            // 
-            this.lbAtendido.AutoSize = true;
-            this.lbAtendido.Location = new System.Drawing.Point(6, 18);
-            this.lbAtendido.Name = "lbAtendido";
-            this.lbAtendido.Size = new System.Drawing.Size(49, 13);
-            this.lbAtendido.TabIndex = 0;
-            this.lbAtendido.Text = "Atendido";
+            this.lbServico.AutoSize = true;
+            this.lbServico.Location = new System.Drawing.Point(232, 18);
+            this.lbServico.Name = "lbServico";
+            this.lbServico.Size = new System.Drawing.Size(43, 13);
+            this.lbServico.TabIndex = 4;
+            this.lbServico.Text = "Serviço";
             // 
             // cbAtendido
             // 
@@ -112,25 +108,31 @@
             this.cbAtendido.Size = new System.Drawing.Size(86, 21);
             this.cbAtendido.TabIndex = 1;
             // 
-            // lbServico
+            // lbAtendido
             // 
-            this.lbServico.AutoSize = true;
-            this.lbServico.Location = new System.Drawing.Point(232, 18);
-            this.lbServico.Name = "lbServico";
-            this.lbServico.Size = new System.Drawing.Size(43, 13);
-            this.lbServico.TabIndex = 4;
-            this.lbServico.Text = "Serviço";
+            this.lbAtendido.AutoSize = true;
+            this.lbAtendido.Location = new System.Drawing.Point(6, 18);
+            this.lbAtendido.Name = "lbAtendido";
+            this.lbAtendido.Size = new System.Drawing.Size(49, 13);
+            this.lbAtendido.TabIndex = 0;
+            this.lbAtendido.Text = "Atendido";
             // 
-            // cbServico
+            // dtpData
             // 
-            this.cbServico.FormattingEnabled = true;
-            this.cbServico.Items.AddRange(new object[] {
-            "Cabelo",
-            "Barba"});
-            this.cbServico.Location = new System.Drawing.Point(235, 33);
-            this.cbServico.Name = "cbServico";
-            this.cbServico.Size = new System.Drawing.Size(81, 21);
-            this.cbServico.TabIndex = 5;
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.Location = new System.Drawing.Point(126, 34);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(86, 20);
+            this.dtpData.TabIndex = 3;
+            // 
+            // lbData
+            // 
+            this.lbData.AutoSize = true;
+            this.lbData.Location = new System.Drawing.Point(123, 18);
+            this.lbData.Name = "lbData";
+            this.lbData.Size = new System.Drawing.Size(30, 13);
+            this.lbData.TabIndex = 2;
+            this.lbData.Text = "Data";
             // 
             // btSalvar
             // 
@@ -152,11 +154,34 @@
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
+            // btCaixa
+            // 
+            this.btCaixa.BackColor = System.Drawing.Color.Red;
+            this.btCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btCaixa.Location = new System.Drawing.Point(21, 112);
+            this.btCaixa.Name = "btCaixa";
+            this.btCaixa.Size = new System.Drawing.Size(25, 23);
+            this.btCaixa.TabIndex = 5;
+            this.btCaixa.UseVisualStyleBackColor = false;
+            this.btCaixa.Click += new System.EventHandler(this.btCaixa_Click);
+            // 
+            // lbCodigo
+            // 
+            this.lbCodigo.AutoSize = true;
+            this.lbCodigo.Location = new System.Drawing.Point(158, 9);
+            this.lbCodigo.Name = "lbCodigo";
+            this.lbCodigo.Size = new System.Drawing.Size(38, 13);
+            this.lbCodigo.TabIndex = 6;
+            this.lbCodigo.Text = "Oculta";
+            this.lbCodigo.Visible = false;
+            // 
             // FrmAgendamentoAlterar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 147);
+            this.Controls.Add(this.lbCodigo);
+            this.Controls.Add(this.btCaixa);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.gbDados);
@@ -188,5 +213,7 @@
         private System.Windows.Forms.Label lbData;
         private System.Windows.Forms.Button btSalvar;
         private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.Button btCaixa;
+        private System.Windows.Forms.Label lbCodigo;
     }
 }

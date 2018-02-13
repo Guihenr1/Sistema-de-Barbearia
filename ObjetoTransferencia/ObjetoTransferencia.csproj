@@ -44,6 +44,8 @@
     <Compile Include="AgendaColecao.cs" />
     <Compile Include="AgendaServicos.cs" />
     <Compile Include="AgendaServicosColecao.cs" />
+    <Compile Include="Caixa.cs" />
+    <Compile Include="CaixaColecao.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteColecao.cs" />
     <Compile Include="Contato.cs" />

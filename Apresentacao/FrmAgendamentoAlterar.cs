@@ -28,6 +28,17 @@ namespace Apresentacao
             }
             dtpData.Value = agenda.Data;
             cbServico.Text = agenda.agendaServicos.IdServico.Descricao;
+            lbCodigo.Text = agenda.IdCliente.IdCliente.ToString();
+            if(agenda.Caixa.Pago == false)
+            {
+                btCaixa.BackColor = Color.Red;
+                btCaixa.Enabled = true;
+            }
+            else
+            {
+                btCaixa.BackColor = Color.Green;
+                btCaixa.Enabled = false;
+            }
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -72,6 +83,18 @@ namespace Apresentacao
             {
                 MessageBox.Show("Erro ao alterar. Detalhes: " + retorno, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DialogResult = DialogResult.No;
+            }
+        }
+
+        private void btCaixa_Click(object sender, EventArgs e)
+        {
+            int IdCliente = Convert.ToInt32(lbCodigo.Text);
+            FrmCaixa frmCaixa = new FrmCaixa(IdCliente);
+            DialogResult dialogResult = frmCaixa.ShowDialog();
+            if(dialogResult == DialogResult.Yes)
+            {
+                btCaixa.BackColor = Color.ForestGreen;
+                btCaixa.Enabled = false;
             }
         }
     }

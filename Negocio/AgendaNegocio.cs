@@ -35,6 +35,8 @@ namespace Negocio
                     agenda.agendaServicos.IdServico.Valor = Convert.ToDecimal(linha["Valor"]);
                     agenda.AgendadoEm = Convert.ToDateTime(linha["AgendadoEm"]);
                     agenda.Atendido = Convert.ToBoolean(linha["Atendido"]);
+                    agenda.Caixa = new Caixa();
+                    agenda.Caixa.Pago = Convert.ToBoolean(linha["Pago"]);
 
                     agendaColecao.Add(agenda);
                 }
@@ -68,6 +70,8 @@ namespace Negocio
                     agenda.agendaServicos.IdServico.Valor = Convert.ToDecimal(linha["Valor"]);
                     agenda.AgendadoEm = Convert.ToDateTime(linha["AgendadoEm"]);
                     agenda.Atendido = Convert.ToBoolean(linha["Atendido"]);
+                    agenda.Caixa = new Caixa();
+                    agenda.Caixa.Pago = Convert.ToBoolean(linha["Pago"]);
 
                     agendaColecao.Add(agenda);
                 }
@@ -101,6 +105,8 @@ namespace Negocio
                     agenda.agendaServicos.IdServico.Valor = Convert.ToDecimal(linha["Valor"]);
                     agenda.AgendadoEm = Convert.ToDateTime(linha["AgendadoEm"]);
                     agenda.Atendido = Convert.ToBoolean(linha["Atendido"]);
+                    agenda.Caixa = new Caixa();
+                    agenda.Caixa.Pago = Convert.ToBoolean(linha["Pago"]);
 
                     agendaColecao.Add(agenda);
                 }

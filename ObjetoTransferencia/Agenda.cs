@@ -14,5 +14,6 @@ namespace ObjetoTransferencia
         public DateTime AgendadoEm { get; set; }
         public Boolean Atendido { get; set; }
         public AgendaServicos agendaServicos { get; set; }
+        public Caixa Caixa { get; set; }
     }
 }

@@ -30,5 +30,10 @@ namespace Apresentacao
             frmClienteSelecionar.MdiParent = this;
             frmClienteSelecionar.Show();
         }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

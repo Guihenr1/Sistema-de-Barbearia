@@ -83,12 +83,13 @@
             this.dgwPrincipal.Name = "dgwPrincipal";
             this.dgwPrincipal.ReadOnly = true;
             this.dgwPrincipal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwPrincipal.Size = new System.Drawing.Size(747, 382);
+            this.dgwPrincipal.Size = new System.Drawing.Size(771, 382);
             this.dgwPrincipal.TabIndex = 3;
+            this.dgwPrincipal.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwPrincipal_CellFormatting);
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(662, 421);
+            this.btCancelar.Location = new System.Drawing.Point(698, 421);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 23);
             this.btCancelar.TabIndex = 7;
@@ -98,7 +99,7 @@
             // 
             // btInserir
             // 
-            this.btInserir.Location = new System.Drawing.Point(419, 421);
+            this.btInserir.Location = new System.Drawing.Point(455, 421);
             this.btInserir.Name = "btInserir";
             this.btInserir.Size = new System.Drawing.Size(75, 23);
             this.btInserir.TabIndex = 4;
@@ -108,7 +109,7 @@
             // 
             // btAlterar
             // 
-            this.btAlterar.Location = new System.Drawing.Point(500, 421);
+            this.btAlterar.Location = new System.Drawing.Point(536, 421);
             this.btAlterar.Name = "btAlterar";
             this.btAlterar.Size = new System.Drawing.Size(75, 23);
             this.btAlterar.TabIndex = 5;
@@ -118,7 +119,7 @@
             // 
             // btExcluir
             // 
-            this.btExcluir.Location = new System.Drawing.Point(581, 421);
+            this.btExcluir.Location = new System.Drawing.Point(617, 421);
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(75, 23);
             this.btExcluir.TabIndex = 6;
@@ -151,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 456);
+            this.ClientSize = new System.Drawing.Size(795, 456);
             this.Controls.Add(this.dtpData);
             this.Controls.Add(this.btExcluir);
             this.Controls.Add(this.btAlterar);
